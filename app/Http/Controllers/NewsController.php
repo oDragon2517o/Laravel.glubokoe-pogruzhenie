@@ -24,4 +24,25 @@ class NewsController extends Controller
             'news' => $this->getNews($id)
         ]);
     }
+
+    public function categories()
+    {
+        $news = $this->getNewsICategories();
+
+        return view(
+            'news.categories',
+            [
+                'newsList' => $news
+            ]
+        );
+    }
+
+    public function ICategories(int $i)
+    {
+        $news = $this->getNewsICategories($i);
+
+        return view('news.ICategories', [
+            'newsList' => $news
+        ]);
+    }
 }

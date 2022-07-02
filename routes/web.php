@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news/list/{id}', [NewsController::class, 'show'])->where('id', '\d+')->name('news.show');
-
+Route::get('/categories', [NewsController::class, 'categories'])->name('categories'); // Список категории
+Route::get('/categories/{idCategories}', [NewsController::class, 'ICategories'])->where('i', '\d+')->name('ICategories'); // Категории по номеру
 
 //Admin routs
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
